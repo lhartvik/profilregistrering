@@ -13,17 +13,4 @@ class ProfilregistreringApplicationTests(@Autowired val profilRepository: Profil
     @Test
     fun contextLoads() {
     }
-
-    @Test
-    internal fun kanLagreProfilTilDatabase() {
-        val profil = Profil(id = null, navn = "Navnet")
-
-        assertThat(profil.id).isNull()
-        profilRepository.save(profil)
-        assertThat(profil.id).isNotNull()
-
-        val lastInRepo = profilRepository.findAll().last()
-        assertThat(lastInRepo.id).isEqualTo(profil.id)
-        assertThat(lastInRepo.navn).isEqualTo("Navnet")
-    }
 }
