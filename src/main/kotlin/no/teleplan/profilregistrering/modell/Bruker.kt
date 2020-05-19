@@ -1,7 +1,8 @@
 package no.teleplan.profilregistrering.modell
 
-import com.fasterxml.jackson.annotation.JsonIgnore
 import javax.persistence.*
+import javax.validation.constraints.NotBlank
+import javax.validation.constraints.NotEmpty
 
 @Entity
 data class Bruker (
@@ -9,7 +10,7 @@ data class Bruker (
     @GeneratedValue(strategy = GenerationType.AUTO)
     var brukerId: Long?,
 
+    @NotBlank(message = "Brukernavn kan ikke være blankt!")
     var brukernavn:String,
-
     var passord:String
 )
