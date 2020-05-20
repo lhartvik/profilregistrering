@@ -6,7 +6,7 @@ import javax.persistence.*
 data class Profil(
         @Id
         @GeneratedValue(strategy = GenerationType.IDENTITY)
-        var id: Int? = null,
+        var id: Long? = null,
 
         var profiltekst: String?,
 
