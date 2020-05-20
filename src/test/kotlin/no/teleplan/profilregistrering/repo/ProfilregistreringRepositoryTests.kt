@@ -5,7 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.test.context.SpringBootTest
 
 @SpringBootTest
-class ProfilregistreringRepositoryTests(@Autowired val brukerRepository: BrukerRepository) {
+class ProfilregistreringRepositoryTests(@Autowired val brukerRepository: UserRepository) {
 
     @BeforeEach
     internal fun setUp() {
