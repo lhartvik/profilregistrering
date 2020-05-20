@@ -1,13 +1,20 @@
 package no.teleplan.profilregistrering.modell
 
+import org.hibernate.bytecode.enhance.spi.interceptor.AbstractLazyLoadInterceptor
 import javax.persistence.*
+import javax.validation.constraints.NotBlank
 
 @Entity
 data class Profil(
         @Id
         @GeneratedValue(strategy = GenerationType.IDENTITY)
-        val id: Int? = null,
+        var id: Int? = null,
 
+        @NotBlank
         @Column(nullable = false)
-        val navn: String
+        var navn: String,
+
+        @OneToOne(fetch = FetchType.EAGER, cascade = arrayOf(CascadeType.MERGE))
+        @JoinColumn(name = "brukerId")
+        var bruker:Bruker
 )
