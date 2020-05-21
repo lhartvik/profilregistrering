@@ -19,6 +19,7 @@ open class WebSecurityConfiguration(private val customUserDetailsService: Custom
 		http.authorizeRequests()
 				.antMatchers("/").permitAll()
 				.antMatchers("/profiler").authenticated()
+				.antMatchers("/profil").authenticated()
 				.and()
 				.httpBasic() //This line will enable Basic Authentication as well. It can be used to access REST API from Postman using Basic Authentication
 				.and()
