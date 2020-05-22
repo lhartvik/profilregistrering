@@ -146,9 +146,7 @@
                         </goals>
                     </execution>
                 </executions>
-                <configuration>
-                    <jvmTarget>1.8</jvmTarget>
-                </configuration>
+
             </plugin>
         </plugins>
     </build>
