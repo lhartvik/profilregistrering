@@ -14,13 +14,13 @@ class ProfilController(@Autowired private val profilService: ProfilService) {
     @GetMapping("/profiler")
     fun getAlleProfiler(): List<User> = profilService.brukere()
 
-    @GetMapping("/profiler/{brukerId}")
+    @GetMapping("/profilId/{brukerId}")
     fun getProfil(@PathVariable brukerId: Long): ResponseEntity<User> =
             profilService.bruker(brukerId)
                     .map { profil -> ResponseEntity.ok(profil) }
                     .orElse(ResponseEntity.notFound().build())
 
-    @GetMapping("/profil/{brukerNavn}")
+    @GetMapping("/profilBrukernavn/{brukerNavn}")
     fun getProfilByUserName(@PathVariable brukerNavn: String): ResponseEntity<User> {
         val bruker = profilService.bruker(brukerNavn)
         return if (bruker != null) ResponseEntity.ok(bruker)
