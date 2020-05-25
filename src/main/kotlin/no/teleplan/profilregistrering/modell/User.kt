@@ -1,5 +1,6 @@
 package no.teleplan.profilregistrering.modell
 
+import com.fasterxml.jackson.annotation.JsonIgnore
 import java.util.*
 import javax.persistence.*
 
@@ -9,32 +10,39 @@ import javax.persistence.*
 				 @JvmField var lastName: String = "",
 				 @JvmField var userName: String = "",
 				 @JvmField var email: String = "",
-				 @JvmField var passWord: String = "") {
+				 @JvmField @JsonIgnore var passWord: String = "") {
 
 	@Id @GeneratedValue
 	@JvmField
 	var id: Long? =null
 
-	@JvmField var version: Int = 0
+	@JvmField
+	@JsonIgnore
+	var version: Int = 0
 
 	@Column( nullable = false, columnDefinition = "BOOLEAN DEFAULT true")
 	@JvmField
+	@JsonIgnore
 	var accountNonExpired: Boolean = true
 
 	@Column( nullable = false, columnDefinition = "BOOLEAN DEFAULT true")
 	@JvmField
+	@JsonIgnore
 	var accountNonLocked: Boolean = true
 
 	@Column( nullable = false, columnDefinition = "BOOLEAN DEFAULT true")
 	@JvmField
+	@JsonIgnore
 	var credentialsNonExpired: Boolean = true
 
 	@Column( nullable = false, columnDefinition = "BOOLEAN DEFAULT true")
 	@JvmField
+	@JsonIgnore
 	var enabled: Boolean = true
 
 	@OneToMany(fetch = FetchType.EAGER, cascade = arrayOf(CascadeType.ALL))
 	@JvmField
+	@JsonIgnore
 	var roles: Set<Role> = HashSet()
 
 	 constructor(user: User) : this(user.firstName, user.lastName, user.userName, user.email, user.passWord) {
