@@ -2,7 +2,6 @@ package no.teleplan.profilregistrering.repo
 
 import no.teleplan.profilregistrering.modell.User
 import org.assertj.core.api.Assertions.assertThat
-import org.assertj.core.api.Assertions.assertThatThrownBy
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
 import org.springframework.beans.factory.annotation.Autowired
